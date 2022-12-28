@@ -1,0 +1,40 @@
+//jor shonkha logic//ONNEK IMP IN NUM THEORY// CHECK OUT GCD FUNC()
+**********************************************************************
+#include<bits/stdc++.h>
+#define op() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+using namespace std;
+int main()
+{
+	op();
+	int t;
+    cin>>t;
+	while(t--)
+	{
+		int n; 
+		cin>>n;
+		vector<int>v,v1;
+		for(int i=0; i<n; i++)
+		{
+			int x;
+			cin>>x;
+			if(x%2==0)v.push_back(x);
+			else v1.push_back(x);
+		}
+
+		int ans=0,z=1,ans1=0;
+		for(int i=0; i<v.size(); i++)
+		{
+			ans+=n-z;
+			z++;
+		}
+		sort(v1.begin(),v1.end());
+		for(int i=0; i<v1.size(); i++)
+		{
+			for(int j=i+1; j<v1.size(); j++)
+			{
+				if(__gcd(v1[i],v1[j])>1)ans1++;
+			}
+		}
+		cout<<ans+ans1<<endl;
+	}
+}
